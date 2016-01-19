@@ -32,7 +32,11 @@ class Usuarios extends CI_Controller {
                
         }
          if($_GET['cat']=='2'){
-                 $this->load->model('modelo_usuarios');
+                $this->load->model('modelo_usuarios');
+
+                if(isset($_POST['idUsuario'])){
+                    $this->modelo_usuarios->borrarUsuarioById($_POST['idUsuario']); 
+                }
                 $datos['usuarios'] = $this->modelo_usuarios->getUsuarios();
                 $this->load->view('header');
 		$this->load->view('usuarios/ver',$datos);   

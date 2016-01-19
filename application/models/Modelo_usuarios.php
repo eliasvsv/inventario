@@ -15,4 +15,13 @@ class modelo_usuarios extends CI_Model {
                 $usuarios = $this->db->get();
     return $usuarios;   
    }
+   public function borrarUsuarioById($id) {
+    $respuesta=0;
+       if( $this->db->delete('usuarios', array('idUsuario' => $id)))
+     {
+         $respuesta=1;
+     }
+     return $respuesta;
+       
+   }
 }
